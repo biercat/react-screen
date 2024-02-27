@@ -3,13 +3,11 @@ import MockAdapter from 'axios-mock-adapter';
 import { mockUserData } from './mockData';
 
 const mock = new MockAdapter(request); 
-// 请求中： 请求参数和返回值的类型都需要进行约束
 
 mock.onPost("/api/login").reply((config)=>{
     let data = JSON.parse(config.data)
-
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';  
-    let token = '';  
+    let token = '';
     const charactersLength = characters.length;  
     for (let i = 0; i < 16; i++) {  //  生成长度为16的token
         token += characters.charAt(Math.floor(Math.random() * charactersLength));  
@@ -23,8 +21,7 @@ mock.onPost("/api/login").reply((config)=>{
     }
     return [200, {msg:'账号不存在！',code:'REQ002'}]
 })
-// 验证码请求
-// export const CaptchaAPI = () =>mock.onGet("/api/centerPageData");
+
 
 // 登录请求
 export const LoginAPI = (params) => request.post("/api/login",params).then((res)=>{
@@ -35,4 +32,3 @@ export const LoginAPI = (params) => request.post("/api/login",params).then((res)
     return err
 })
 
-// export const LoginAPI1 = () =>mock.onGet("/api/leftPageData");
