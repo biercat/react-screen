@@ -25,10 +25,8 @@ mock.onPost("/api/login").reply((config)=>{
 
 // 登录请求
 export const LoginAPI = (params) => request.post("/api/login",params).then((res)=>{
-    console.log(res,'res---')
     return res
 }).catch((err)=>{
-    console.log(err,'err--')
     return err
 })
 
