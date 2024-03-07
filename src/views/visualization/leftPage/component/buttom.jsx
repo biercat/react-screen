@@ -1,6 +1,7 @@
 import {ScrollBoard,BorderBox13} from '@jiaminghi/data-view-react'
 import  {useState,useEffect} from 'react'
 import { getShopList } from "@/request/leftApi"
+import '../index.less'
 
 function LeftButtom(){
     const [shopData,setShopData] = useState({})
@@ -37,7 +38,7 @@ function LeftButtom(){
             <div className='title_box_nopadding'>
                 <div className='title_back_color'>订单数据</div>
             </div>
-            <ScrollBoard config={shopData} ></ScrollBoard>
+            <ScrollBoard className='bar_echarts' config={shopData} ></ScrollBoard>
         </BorderBox13>
     )
 }

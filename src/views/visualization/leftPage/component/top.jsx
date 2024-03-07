@@ -32,12 +32,14 @@ function LeftTop(){
     }
 
     return(
-        <BorderBox10 className='border_box_10'>
-            <div className='title_box'>
-                <div className='title_back_color'>各地区排名</div>
-            </div>
-            <BarEcharts options={cityCharts} />
-        </BorderBox10>
+        <div className='border_box_10'>
+            <BorderBox10 >
+                <div className='title_box'>
+                    <div className='title_back_color'>各地区排名</div>
+                </div>
+                <BarEcharts className='bar_echarts' options={cityCharts} />
+            </BorderBox10>
+        </div>
     )
 }
 

@@ -4,7 +4,6 @@
     padding: 16px;
     background-color: #030b27ff;
     color: white;
-    // overflow-x: auto;
     background-size: cover !important;
     background-position: center !important;
     background: url("../assets/img/bigBgc.png");
@@ -18,14 +17,6 @@
         top: -60px;
         width: 100%;
     }
-    // .title_back_left{
-        
-    //     width: 0;  
-    //     height: 0;  
-    //     border-top: 1rem solid transparent;  
-    //     border-bottom: 1rem solid transparent;  
-    //     border-right: 1rem solid #0B8E9A;  
-    // }
     .title_back_color{
         padding-left: 6px;
         flex: 1;
@@ -33,5 +24,18 @@
         font-size: 1rem;
         background-image: linear-gradient(to right, rgba(11,142,154,1), rgba(13,38,63,0));
         border-left: 3px solid #41E8E9;
+    }
+    .index-buttom{
+        display: flex;
+        justify-content: space-between;
+        .left_page{
+            width: 33%;
+        }
+        .right_page{  // 右边的样式
+            width: 33%;
+        }
+        .center_page{
+            flex: 1;
+        }
     }
 }

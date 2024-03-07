@@ -1,5 +1,4 @@
 import * as echarts from 'echarts';
-import './style/RoseEcharts.less'
 import  {useState,useEffect,useRef } from 'react'
 
 function RoseEcharts(){

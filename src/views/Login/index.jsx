@@ -39,6 +39,7 @@ const Login = ()=>{
         username:usernameVal,
         password:passwordVal,
     })
+    console.log(loginAPIRes,'loginAPIRes')
     if(loginAPIRes.code==='REQ001'){
       // 1、提示登录成功
       message.success("登录成功！")

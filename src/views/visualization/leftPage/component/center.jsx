@@ -38,19 +38,21 @@ function LeftCenter(){
     }
 
     return(
-        <BorderBox10 className='border_box_10'>
+        <div  className='border_box_10'>
+        <BorderBox10>
             <div className='title_box'>
                 <div className='title_back_color'>品类占比</div>
             </div>
             <div className='Box_10_bottom'>
             <div className='border_box_10_half'>
-                <BarEcharts options={ctegorydata} />
+                <BarEcharts className='bar_echarts' options={ctegorydata} />
             </div>
             <div className='border_box_10_half'>
-                <BarEcharts options={rabarData} />
+                <BarEcharts className='bar_echarts' options={rabarData} />
             </div>
             </div>
         </BorderBox10>
+        </div>
     )
 }
 
