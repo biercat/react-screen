@@ -15,8 +15,16 @@ export const getCityList = (params) => request.post("/api/left/city/list",params
 })
 
 
-mock.onPost("/api/left/category/list").reply((config)=>{   
-    return [200,{data:mockcCategoryData,code:'REQ001'}]
+mock.onPost("/api/left/category/list").reply((config)=>{  
+    // console.log(config,'=======9990009999')
+    let totalSales = 0
+    let allVolume = 0
+    mockcCategoryData.forEach((item)=>{
+        totalSales += item.salesVolume
+        allVolume += item.numValue
+    })
+    
+    return [200,{data:{dataList:mockcCategoryData,totalSales,allVolume},msg:'请求成功',code:'REQ001'}]
 })
 export const getCtegoryList = (params) => request.post("/api/left/category/list",params).then((res)=>{
     return res

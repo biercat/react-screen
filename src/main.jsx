@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from "react-router-dom"
+import {StateProvider} from './store/context.jsx'
 
 
 
 ReactDOM.render(    //ReactDOM.reder自React 18.0.0以来已弃用所以有提示，但是因为jiaminghi/data-view-react不支持react18，所以本项目使用react16.8
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
+    <StateProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

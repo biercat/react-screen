@@ -1,17 +1,20 @@
 
 // import BarEcharts from "@/components/BarEcharts"
 import rainBg from '../charts/options'
-import { useEffect } from "react"
-
+import { useEffect, useState } from "react"
+import { useAsync } from '@/store/action'
 import '../index.less'
 
 function Map(){
+    const [totalSales,setTotalSales] = useState(0)
+    const { state } = useAsync()
     // 加载完这个组件之后，加载背景
-  useEffect(()=>{
-    console.log(rainBg(),'====99999=')
-    // window.onresize = function(){rainBg()};
-    
-  },[])
+    useEffect(()=>{
+        rainBg()
+    },[])
+    useEffect(()=>{
+        setTotalSales(state.totalSales)
+    },[state.totalSales])
 
     return(
        <>
@@ -21,7 +24,7 @@ function Map(){
                 <div className="sphere-bg"></div>
                 <div className="sum">
                     <span>销售总额</span>
-                    <p>999999999</p>
+                    <p>{totalSales}</p>
                 </div>
             </div>
             <canvas className="rain"></canvas>
