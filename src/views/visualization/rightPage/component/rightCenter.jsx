@@ -1,9 +1,9 @@
 import {ScrollBoard,BorderBox13} from '@jiaminghi/data-view-react'
 import  {useState,useEffect} from 'react'
-import { getShopList } from "@/request/leftApi"
+import { getShopList } from "@/request/rightApi"
 import '../index.less'
 
-function LeftButtom(){
+function RightCenter(){
     const [shopData,setShopData] = useState({})
     useEffect(()=>{
         getShopData()
@@ -30,17 +30,19 @@ function LeftButtom(){
             })
 
         }
-        // console.log(res,'77777')
+      console.log(res,'77777')
     }
 
     return(
-        <BorderBox13 className='border_box_13'>
-            <div className='title_box_nopadding'>
-                <div className='title_back_color'>订单数据</div>
-            </div>
-            <ScrollBoard className='bar_echarts' config={shopData} ></ScrollBoard>
-        </BorderBox13>
+        // <div>
+            <BorderBox13 className='right_border_box_13'>
+                <div className='title_box_nopadding'>
+                    <div className='title_back_color'>订单数据</div>
+                </div>
+                <ScrollBoard className='scroll_echarts' config={shopData} ></ScrollBoard>
+            </BorderBox13>
+        // </div>
     )
 }
 
-export default LeftButtom
+export default RightCenter

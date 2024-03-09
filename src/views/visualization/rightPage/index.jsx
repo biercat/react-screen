@@ -1,11 +1,14 @@
 
+import RightCenter from "./component/rightCenter"    
+import "./index.less"
 
 function RightPage(){
 
 
     return(
         <div className="right_page">
-            222
+            <RightCenter />
+            
         </div>
     )
 }

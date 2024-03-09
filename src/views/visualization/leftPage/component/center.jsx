@@ -1,7 +1,7 @@
 import BarEcharts from "@/components/BarEcharts"
 import { RoseOptions,RadarOptions } from "../charts/option"
 import { BorderBox10 } from '@jiaminghi/data-view-react'
-import  {useState,useEffect,useContext} from 'react'
+import  {useState,useEffect} from 'react'
  
 import { useAsync } from '@/store/action'
 
@@ -18,11 +18,20 @@ function LeftCenter(){
 
     const { state, getCtegoryListAsync } = useAsync()
 
+    
 
     useEffect( ()=>{   //调玫瑰图的接口
-        getCtegoryListAsync({})
+        getCtegoryListAsync({data:[]})
+        // const intervalId = setInterval(fetchData, 5000)
+        return () =>{
+            // clearInterval(intervalId)
+        }
     },[])
-
+    // const fetchData = () =>{   
+    //     console.log(ctegorydata,'----') // 拿不到最新数据
+    //     getCtegoryListAsync({data:state.ctegoryList})
+    // }
+   
     useEffect(()=>{
         let dataList =  state.ctegoryList || []
         dataList.sort((a,b)=> { 
@@ -39,6 +48,14 @@ function LeftCenter(){
         setAllRoseData({...allRoseData,...obj})
         let data = RoseOptions(ctegoryArr)  // 玫瑰图
         setCtegoryData(data) 
+
+        const setTimeoutId = setTimeout(()=>{
+            getCtegoryListAsync({data:state.ctegoryList})
+        },5000)
+
+        return () =>{
+            clearTimeout(setTimeoutId) // 数据变化清除上一个定时器
+        }
     },[state.allVolume,state.ctegoryList,state.totalSales])
 
     

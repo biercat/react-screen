@@ -2,7 +2,7 @@ import './index.less'
 import  {useState,useEffect} from 'react'
 import LeftTop from "./component/top"
 import LeftCenter from './component/center'
-import LeftButtom from './component/buttom'
+import LeftTitle from './component/leftTitle'
 
 
 function LeftPage(){
@@ -10,10 +10,10 @@ function LeftPage(){
 
     return(
         <div className='left_page'>
-           
+            <LeftTitle />
             <LeftTop />          
             <LeftCenter />
-            <LeftButtom />
+            
         </div>
     )
 }
