@@ -60,7 +60,7 @@ function LeftCenter(){
 
     
     const onChangeRoseData = (belstate,data) =>{
-        console.log(belstate,data)
+        // console.log(belstate,data)
         setAllRoseState(belstate)
         setRoseData({...data})
     }

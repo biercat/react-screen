@@ -1,21 +1,25 @@
 import {ScrollBoard,BorderBox13} from '@jiaminghi/data-view-react'
 import  {useState,useEffect} from 'react'
-import { getShopList } from "@/request/rightApi"
+// import { getShopListAsync } from "@/request/rightApi"
+import { useAsync } from '@/store/action'
 import '../index.less'
 
 function RightCenter(){
     const [shopData,setShopData] = useState({})
+
+    const { state, getShopListAsync } = useAsync()
+
     useEffect(()=>{
-        getShopData()
+        getShopListAsync({})
     },[])
 
-    const getShopData = async () =>{
-        let res = await getShopList({})
-
-        if(res.code === 'REQ001'){
+    useEffect(()=>{
             let header = ['地区','渠道','成交信息','费用']
             let data = []
-            res.data.forEach(element => {
+            let end = state.shopList.length
+            let start = Math.max(end - 50, 0)
+            let shopList = state.shopList.slice(start,end)
+            shopList.forEach(element => {
                 let arr = []
                 arr[0] = element.province
                 arr[1] = element.channel
@@ -26,12 +30,27 @@ function RightCenter(){
 
             setShopData({
                 header,
-                data
+                data,
+                // carousel: 'page',
+                rowNum:8,
             })
-
+        const setTimeoutId = setTimeout(()=>{
+            getShopListAsync({shopList:state.shopList,rankData:state.rankData})
+        },10000)
+        return () =>{
+            clearTimeout(setTimeoutId) // 数据变化清除上一个定时器
         }
-      console.log(res,'77777')
-    }
+    },[state.shopList])
+
+    // const getShopData = async () =>{
+    //     let res = await getShopList({})
+
+    //     if(res.code === 'REQ001'){
+  
+
+    //     }
+    //   console.log(res,'77777')
+    // }
 
     return(
         // <div>
