@@ -25,7 +25,6 @@ mock.onPost("/api/left/category/list").reply((config)=>{
         for(let i = 0; i < 10; i++){// 每次调接口购买十件商品
             let index =  Math.floor(Math.random() * 6)   //随机购买商品
             let value = Math.floor(Math.random() * (1000 - 50 + 1)) + 50 // 商品的价格是50-1000
-            console.log(index,'-------------------',value,)
             if(data.data[index].numValue < data.data[index].sum){  //  销售量小于库存才可以购买
                 data.data[index].numValue += 1
                 data.data[index].salesVolume += value
