@@ -28,7 +28,7 @@ const Login = ()=>{
   
   // 点击登录按钮的事件函数
   const gotoLogin = async ()=>{
-    console.log("用户输入的用户名，密码，验证码分别是：",usernameVal,passwordVal);
+    // console.log("用户输入的用户名，密码，验证码分别是：",usernameVal,passwordVal);
     // 验证是否有空值
     if(!usernameVal.trim() || !passwordVal.trim()){
       message.warning("请完整输入信息！")
@@ -39,7 +39,7 @@ const Login = ()=>{
         username:usernameVal,
         password:passwordVal,
     })
-    console.log(loginAPIRes,'loginAPIRes')
+    // console.log(loginAPIRes,'loginAPIRes')
     if(loginAPIRes.code==='REQ001'){
       // 1、提示登录成功
       message.success("登录成功！")
