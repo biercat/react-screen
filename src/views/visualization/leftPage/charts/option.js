@@ -32,7 +32,7 @@ export const BarOptions = params => ({
     ],
     series: [
         {
-            name: 'Direct',
+            name: '省份',
             type: 'bar',
             barWidth: '60%',
             data: params.map((item) => {
